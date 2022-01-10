@@ -1,0 +1,5 @@
+This hardcoded stuff will be written to a file.
+This also.
+Gosho
+Pesho
+ToshoEnd of spam.
