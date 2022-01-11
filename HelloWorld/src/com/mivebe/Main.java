@@ -46,8 +46,8 @@ public class Main {
         System.out.println();
         TryingEnums.useWeekDays();
 
-        FileRW.writeTest();
-        FileRW.read();
+//        FileRW.writeTest();
+//        FileRW.read();
 
         System.out.println();
         MapAndHashMap.HashMap();
@@ -57,7 +57,7 @@ public class Main {
 //        SortingAlgs.test("quick");
 //        SortingAlgs.test("merge");
 //        SortingAlgs.test("bubble");
-        SortingAlgs.test("bogus");
+//        SortingAlgs.test("bogus");
 
         System.out.println();
 

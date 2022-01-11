@@ -3,8 +3,14 @@ package com.mivebe;
 import java.util.*;
 
 public class SortingAlgs {
+    private static final String INSERTION_SORT = "insertion";
+    private static final String QUICK_SORT = "quick";
+    private static final String MERGE_SORT = "merge";
+    private static final String BUBBLE_SORT = "bubble";
+    private static final String BOGUS_SORT = "bogus";
+
     public static void test(){
-        test("insertion",10);
+        test(INSERTION_SORT,10);
     }
     public static void test(String method){
         test(method, 10);
@@ -20,16 +26,12 @@ public class SortingAlgs {
         System.out.println("Before: ");
         printArray(numbers);
 
-        if (method == "insertion") {
-            insertionSort(numbers);
-        }else if (method == "quick"){
-            quickSort(numbers);
-        }else if (method == "merge"){
-            mergeSort(numbers);
-        }else if (method == "bubble"){
-            bubbleSort(numbers);
-        }else if (method == "bogus"){
-            boguSort(numbers);
+        switch (method) {
+            case INSERTION_SORT -> insertionSort(numbers);
+            case QUICK_SORT -> quickSort(numbers);
+            case MERGE_SORT -> mergeSort(numbers);
+            case BUBBLE_SORT -> bubbleSort(numbers);
+            case BOGUS_SORT -> boguSort(numbers);
         }
 
         System.out.println("\nAfter: ");
@@ -154,12 +156,9 @@ public class SortingAlgs {
         int[] leftHalf = new int[midPoint];
         int[] rightHalf = new int[arrLength - midPoint];
 
-        for (int i = 0; i < midPoint; i++) {
-            leftHalf[i] = arr[i];
-        }
-        for (int i = midPoint; i < arrLength; i++){
-            rightHalf[i - midPoint] = arr[i];
-        }
+        System.arraycopy(arr, 0, leftHalf, 0, midPoint);
+        if (arrLength - midPoint >= 0)
+            System.arraycopy(arr, midPoint, rightHalf, 0, arrLength - midPoint);
 
         mergeSort(leftHalf);
         mergeSort(rightHalf);
@@ -185,7 +184,7 @@ public class SortingAlgs {
         List<Integer> arrList = new ArrayList<>();
 
         for (int value : arr){
-            arrList.add(Integer.valueOf(value));
+            arrList.add(value);
         }
 
         while (!isSorted(arrList)) {
